@@ -64,3 +64,11 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Ejercios:
+
+Ver Ruta /products y obtener el average del precio de los productos con ayuda de las colecciones: [Collection](https://laravel.com/docs/11.x/collections) y mostrar el resultado en la vista products.
+
+En la vista Productos (/products) agregar el link hacia el producto, teniendo el cuenta que la ruta para los productos
+individuales ya la tenemos definida (/products/{id}). Pista: se debe agregar el id a los campos seleccionados de la
+coleccion de los productos.
