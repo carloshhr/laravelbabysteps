@@ -26,15 +26,17 @@ Route::get('/products', function() {
     // Todos los productos
     $products = $response->collect('products'); // Collection
 
-    $processedProducts = $products->select(['title', 'description', 'category', 'price', 'thumbnail']);
+    $processedProducts = $products->select(['id', 'title', 'description', 'category', 'price', 'thumbnail']);
 
     // Necesitamos el Average de los productos (usar metodos de las colecciones) !!!
+    $average = $products->avg('price');
 
     // Pasar informacion a una vista llamada products
     return view('products', [
         'products' => $processedProducts,
+        'average' => $average,
     ]);
-});
+})->name('products');
 
 Route::get('/products/{id}', function($id) {
     $response = Http::get("https://dummyjson.com/products/$id");
@@ -43,4 +45,4 @@ Route::get('/products/{id}', function($id) {
     $product = $response->collect(); // Collection
 
     return view('product', ['product' => $product]);
-})->whereNumber('id');
+})->whereNumber('id')->name('product');
